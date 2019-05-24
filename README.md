@@ -1,7 +1,7 @@
 SV Frontend Module React Template :smiley::blush::kissing::stuck_out_tongue_winking_eye:
 ===========================
 
-** CRUD Sample source 예시 위치**  
+**CRUD Sample source 예시 위치**  
 src\containers\faq\FaqContainer.js  
 
 * [프로젝트 시작하기](https://github.com/hitechinfo/template_frontend_react_001/blob/master/docs/00.%20project_pre.md)  
