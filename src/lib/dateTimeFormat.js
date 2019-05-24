@@ -1,3 +1,4 @@
+// String을 받아서 YYYY-MM-DD HH-MI 형태로 변경
 const dateTimeFormat = (date) => {
 
     function pad2(n) {  // always returns a string

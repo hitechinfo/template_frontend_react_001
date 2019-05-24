@@ -16,7 +16,6 @@ class AuthService {
         }
     }
 
-    /** 변수명이 달라서 로그인 이후 토큰 set은 따로 만들었음 */
     /** sessionStorage에 인증 정보 저장 
      * token: 토큰 인증서버에서 받은 토큰
      * userId: 로그인한 userId 정보
@@ -35,7 +34,7 @@ class AuthService {
 
 
 
-    /** sessionStorage에 담긴 인증 정보 반환 */
+    /** sessionStorage에 담긴 토큰정보 반환 */
     getToken = () => {
         if(!sessionStorage) return null;
 
@@ -51,7 +50,7 @@ class AuthService {
     }
 
 
-    /** 인증정보에서 userId 반환 */
+    /** sessionStorage에 담긴 userId 반환 */
     getUserInfo = () => {
 
         if(sessionStorage["sessionObj"]){
@@ -67,7 +66,7 @@ class AuthService {
             return userId;
         }
     }
-    /** sessionStorage에 담긴 인증 정보 삭제 */
+    /** sessionStorage에 담긴정보 삭제 */
     removeSessionObj = () => {
         if(!sessionStorage) return null;
 
