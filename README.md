@@ -1,4 +1,4 @@
-SV Frontend Module React Template :smiley::blush::kissing::stuck_out_tongue_winking_eye:
+SV Module Frontend React Template :smiley::blush::kissing::stuck_out_tongue_winking_eye:
 ===========================
 
 **CRUD Sample source 예시 위치**  
