@@ -1,6 +1,5 @@
 import React from 'react';
 import 'style/common.css';
-import { Link } from 'react-router-dom';
 const path = require('path');
 import { connect } from 'react-redux';
 import * as menuActions from 'modules/menu';
@@ -10,14 +9,10 @@ class App extends React.Component {
     
   /** 화면 이동  */
   handleMoveTo = (e) => {
-    //console.log()
     const clickUrl =  e.currentTarget.getAttribute("data-url");
     this.props.MenuActions.setClickMenu(clickUrl);
     this.props.history.push(e.currentTarget.getAttribute("data-url"));
   }
-
-
-
 
   render(){
         const { handleMoveTo } = this;

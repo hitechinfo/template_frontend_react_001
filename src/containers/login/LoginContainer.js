@@ -69,8 +69,6 @@ class LoginContainer extends Component {
                 }
             ).catch(function(e) { //에러 발생시 로직
                 AuthActions.logout();
-                // console.log(`e.response: ${e.response}`)
-                // console.log(`e.response: ${e}`)
                 if(e.response.status === 401) {
                     alert('ID 혹은 패스워드가 일치하지 않습니다');
                 }else{
@@ -99,7 +97,6 @@ class LoginContainer extends Component {
 
     /** 이메일 Domain의 직접입력 checkbox event 직접입력이 디폴트.*/ 
     handleCustomInput = (e) => {
-        //console.log(e.target.checked)
         this.setState({
             customInput: e.target.checked,
             inputEmail:""

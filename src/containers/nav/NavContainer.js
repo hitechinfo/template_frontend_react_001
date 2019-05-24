@@ -17,9 +17,8 @@ class NavContainer extends Component {
     }
 
     componentDidMount() {
-        //게시판 리스트 조회
+        // 메뉴 리스트 조회
         // this.handleGetMenuList()
-        
     }
 
     handleScroll() {
@@ -42,7 +41,7 @@ class NavContainer extends Component {
         })
         .then( (response) => {
           if (response == null){
-            //   console.log('response null임');
+            //   console.log('response null');
           }else {
               //조회한 데이터 store에 셋팅
               MenuActions.setMenuList(response.data);
@@ -119,12 +118,6 @@ class NavContainer extends Component {
                 <li className="gt-f-l nav__menu-item" data-url="/recruit" onClick={handleMoveTo}><span className="gnb_1depth" style={styleCheck(clickedMenu, "/recruit")} >모집공고</span></li>
                 <li className="gt-f-l nav__menu-item" data-url="/company" onClick={handleMoveTo}><span className="gnb_1depth" style={styleCheck(clickedMenu, "/company")}>채용희망사 소개</span></li>
                 <li className="gt-f-l nav__menu-item" data-url="/faq"     onClick={handleMoveTo}><span className="gnb_1depth" style={styleCheck(clickedMenu, "/faq")}>FAQ(샘플)</span>
-                  {/* <div className="list_gnb_sub">
-                      <ul className="gnb_2depth">
-                          <li className="gt-f-l" data-url="/faq" onClick={handleMoveTo}><span>FAQ</span></li>
-                          <li className="gt-f-l" data-url="/question" onClick={handleMoveTo}><span>1:1문의</span></li>
-                      </ul>
-                  </div> */}
                 </li>
             </ul>
           </nav>

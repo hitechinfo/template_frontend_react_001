@@ -28,7 +28,6 @@ const initialState = Map({
  * reducer 작성
  */
 export default handleActions({
-
     [LOGIN] : (state, action) => {
         return state.set('isLogin', true)
                     .set('userId', action.payload.userid)

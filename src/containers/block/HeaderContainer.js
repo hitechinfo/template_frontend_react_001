@@ -23,7 +23,6 @@ class HeaderContainer extends Component {
     componentWillMount = () => {
         //렌더링 전에 로그인 체크
         this.handleLoginCheck();
-
     }
 
     
@@ -39,7 +38,6 @@ class HeaderContainer extends Component {
    
     /** 화면 이동  */
     handleMoveTo = (e) => {
-      //console.log("url", e.target.getAttribute("data-url"))
       const clickUrl =  e.currentTarget.getAttribute("data-url");
       this.props.MenuActions.setClickMenu(clickUrl);
       this.props.history.push(clickUrl);
@@ -47,7 +45,6 @@ class HeaderContainer extends Component {
 
     /** 로그아웃 */
     handleLogout = () => {
-      //console.log("")
 
       const { AuthActions, MenuActions } = this.props;
       const userId = storage.getUserInfo()
@@ -62,9 +59,7 @@ class HeaderContainer extends Component {
           }
       }).then(
           (res) => {
-            // console.log("로그아웃 로그", res)
             if(res.data.length > 0){
-              //console.log("리턴", res);
               alert("로그아웃 되었습니다");
                 MenuActions.setClickMenu("/");
                 
@@ -96,7 +91,6 @@ class HeaderContainer extends Component {
                 "textDecoration":"underLine"
             };
         }
-        // console.log(style)
         return style
 
     }
@@ -113,7 +107,7 @@ class HeaderContainer extends Component {
                   <img alt=" 행복성장캠퍼스" style={{"cursor":"pointer"}} src={logo} data-url="/" onClick={handleMoveTo}></img>
               </h1>
               <NavContainer></NavContainer>
-              
+              {/* 로그인된 경우 */}
               { isLogin && 
                 <div>
                   <div className="logout" onClick={handleLogout}>
@@ -124,6 +118,7 @@ class HeaderContainer extends Component {
                   </div>
                 </div>
               }
+              {/* 로그인이 안된 경우 */}
               { !isLogin && <div className="login" data-url="/login" onClick={handleMoveTo}><img src={iconLogin}></img><span style={styleCheck(clickedMenu, "/login")}>로그인</span></div>}
             </div>
           </header>

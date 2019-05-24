@@ -31,12 +31,8 @@ import {
   FaqContainer,
   HeaderContainer,
   RegisterContainer,
-  UnauthRoute,
   AuthRoute
         } from 'containers';
-
-
-// menu
 import Footer from 'components/block/Footer';
 
 import { privateRoutes, publicRoutes } from 'routes';
@@ -47,9 +43,9 @@ const logger = createLogger();
 // Redux Store 생성
 const store = createStore(reducers);
 /**
- * store 
+ * Reducer, action의 내용들을 Log로 확인하고 싶은 경우, store 설정을 아래의 내용으로 변경.
  */
-// const store = createStore(modules, applyMiddleware(logger))
+// const store = createStore(reducers, applyMiddleware(logger))
 
 
 const history = createBrowserHistory();

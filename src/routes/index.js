@@ -11,7 +11,7 @@ import { RegistForm } from 'components'
 
 // 로그인이 필요한 서비스 url
 export const privateRoutes = [
-  { /**faq 페이지 */
+  { /** faq 페이지 */
     path: "/faq",
     component: FaqContainer
   },
@@ -49,12 +49,10 @@ export const publicRoutes = [
     path: "/register",
     component: RegisterContainer
   },
-  {/** 회원가입 */
+  {/** 회사 리스트 */
     path: "/company",
     component: CompanyContainer
   },
-
-
   {/** 모집공고 페이지 */
     path: "/recruit",
     component: RecruitContainer

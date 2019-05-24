@@ -27,7 +27,9 @@ class IntroContainer extends Component {
     render() {
         const { submenu } = this.state;
         return (
-            <IntroImg submenu={submenu}></IntroImg>
+            <div className="sub-contents">
+                <IntroImg submenu={submenu}></IntroImg>
+            </div>
          );
     }
 }

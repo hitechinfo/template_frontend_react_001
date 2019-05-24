@@ -36,7 +36,9 @@ export const setSubMenu = createAction(SET_SUB_MENU);
  });
 
 
-//reducer 작성
+/*
+ * reducer 작성
+ */
 export default handleActions({
   [SET_MENU_LIST] : (state, action) => {
     return state.set('menuList', action.payload)
