@@ -23,7 +23,7 @@ module.exports = {
                 changeOrigin: true,
            },
           '/': {
-              target: 'http://192.168.0.6:8080', //rest api
+              target: 'http://192.168.0.6:3005', //rest api
                   secure: false,
                   changeOrigin: true,
           }

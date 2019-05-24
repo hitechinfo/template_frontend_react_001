@@ -1,3 +1,5 @@
+
+//dateformat 형태 (string 을 받아서 YYYYMMDD 형태로 변경)
 export const dateFormat = (date) => {
         var d = new Date(date),
         month = '' + (d.getMonth() + 1),
@@ -9,8 +11,8 @@ export const dateFormat = (date) => {
 
         return [year, month, day].join("");
     }
-// export default formatDate;
 
+//dateformat(YYYYMMDD to YYYY-MM-DD)
 export const dateBarFormat = (date) => {
 
     const year = date.substring(0, 4);
