@@ -12,25 +12,7 @@ import reducers from 'modules';
 //application page
 import App from 'App';
 import {
-  ApplyContainer,
-  MyApplyContainer,
-  QuestionAddContainer,
-  QuestionListContainer,
-  QuestionDetailContainer,
-  CompanyContainer,
-  IntroContainer,
-  LoginContainer,
-  AgreementContainer,
-  QualifiedContainer,
-  ApprovalContainer,
-  RegistFormContainer,
-  SelectCompanyContainer,
-  SubmitResumeContainer,
-  RecruitContainer,
-  NavContainer,
-  FaqContainer,
   HeaderContainer,
-  RegisterContainer,
   AuthRoute
         } from 'containers';
 import Footer from 'components/block/Footer';
