@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import axios from  'axios';
+
+/** 리덕스 연결을 위해 필요한 모듈  **/
 import { connect } from 'react-redux';
-import {bindActionCreators} from 'redux';
+import { bindActionCreators } from 'redux';
+
+/**  **/
 import * as faqActions from 'modules/faq';
 import * as authActions from 'modules/auth';
+
 import storage from 'lib/storage';
-import { SampleModifyPopup, SampleCreatePopup, SampleList } from 'components';
+
+/* 선언한 component를 가져온다 */
+import {  SampleModifyPopup, 
+          SampleCreatePopup, 
+          SampleList } from 'components';
 
 class FaqContainer extends Component {
 
@@ -36,14 +45,16 @@ class FaqContainer extends Component {
         this.openQuestion = this.openQuestion.bind(this);
     }
 
-    componentDidMount() {
-      //렌더링 후에 FAQ 리스트 조회
-      this.handleGetFaqList();
-    }
 
     componentWillMount = () => {
+      //렌더링 하기 전에 실행되는 함수 (되도록 사용금지 곧 없어짐)
       //질문카테고리 코드데이터 조회
       this.getCodeValue();
+    }
+
+    componentDidMount() {
+      //렌더링 이후 실행되는 함수
+      this.handleGetFaqList();
     }
 
     /** 저장된 FAQ 글 리스트 조회 */
@@ -475,7 +486,7 @@ class FaqContainer extends Component {
                                 <button onClick={openCreatePopup}>추가하기</button>
                                 <div>
                                     <div className="line_2_gray"></div>
-                                    {/* 리스트 생성하는 부분 */}
+                                    {/* 리스트 생성 */}
                                     { 
                                       <SampleList 
                                           faqList={faqList} 
