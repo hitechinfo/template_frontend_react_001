@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+
+/*                                  부모로 부터 받은 props 들                                 */
+/*                      ↓             ↓               ↓              ↓              ↓     */
 const SampleList = ({faqList, selectedQuestion, openQuestion, openModiPopup, handleDeleteFaq}) => {
 
     {/* 같은형태의 component는 .map을 이용해서 반복적으로 그린다 */}
