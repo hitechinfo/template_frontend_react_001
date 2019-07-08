@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import * as faqActions from 'modules/faq';
 import * as authActions from 'modules/auth';
 import storage from 'lib/storage';
-import { SampleModifyPopup, SampleCreatePopup } from 'components';
+import { SampleModifyPopup, SampleCreatePopup, SampleList } from 'components';
 
 class FaqContainer extends Component {
 
@@ -133,8 +133,8 @@ class FaqContainer extends Component {
     
     /** 검색 버튼 클릭 */
     handleSummit = (e) => {
-      const {filterText, lastCategory, selectedQuestion} = this.state;
-      const {faqList} = this.props;
+      const { filterText, lastCategory, selectedQuestion } = this.state;
+      const { faqList } = this.props;
       if(filterText.length == 0 && lastCategory.lenth == 0){
           this.setState ({filteredData: faqList});
       }else{
@@ -427,7 +427,10 @@ class FaqContainer extends Component {
               closeCreatePopup,
               openModiPopup,
               openCreatePopup,
-              closeModiPopup,  } = this;
+              closeModiPopup,
+              openQuestion  } = this;
+
+      const { faqList } = this.props;
 
         return (
 
@@ -472,25 +475,16 @@ class FaqContainer extends Component {
                                 <button onClick={openCreatePopup}>추가하기</button>
                                 <div>
                                     <div className="line_2_gray"></div>
-                                    {/* 같은형태의 component는 .map을 이용해서 반복적으로 그린다 */}
-                                    {/* .map 사용시 주의사항 가장 parent tag에 unique key가 반드시 들어가야함  */}
-                                    { this.state.filteredData.map((object ,i) => (
-                                      <div key={object.faqSeq}>
-                                      <div className="gt-f-l faq_list_box"  onClick={this.openQuestion(object.faqSeq)}>
-                                          <div className={ selectedQuestion === object.faqSeq ? "gt-f-l faq_section_on" : "gt-f-l faq_section"} >{object.faqCategory}</div>
-                                          <div className={ selectedQuestion === object.faqSeq ? "gt-f-l faq_title_text_on" : "gt-f-l faq_title_text"} > {object.faqQuestion}</div>
-                                          <div className={ selectedQuestion === object.faqSeq ? "gt-f-l faq_img_on" : "gt-f-l faq_img_off"}></div>
-                                      </div>
-                                        { selectedQuestion === object.faqSeq ?
-                                        <div className="gt-f-l faq_list_box_a">
-                                        <div className="faq_title_text_a">{object.faqAnswer}</div>
-                                        <button className="" data-seq={object.faqSeq} onClick={openModiPopup}>답변수정하기</button>
-                                        <button className="" data-seq={object.faqSeq} onClick={handleDeleteFaq}>삭제하기</button>
-                                        </div> : undefined }
-                                      </div>      
-
-
-                                    ))}
+                                    {/* 리스트 생성하는 부분 */}
+                                    { 
+                                      <SampleList 
+                                          faqList={faqList} 
+                                          selectedQuestion={selectedQuestion} 
+                                          openQuestion={openQuestion}
+                                          openModiPopup={openModiPopup}
+                                          handleDeleteFaq={handleDeleteFaq}
+                                      />
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -509,16 +503,24 @@ class FaqContainer extends Component {
     }
 }
 
-// 컴포넌트에 리덕스 스토어를 연동해줄 때에는 connect 함수 사용
+// 컴포넌트에 리덕스 연결시 아래 형태 connect - state - dispatch 사용
 export default connect(
     //component에서 사용하기 위해 store에서 저장된 값을 꺼내서 할당하는 부분
+    //this.props.faqList
+    //this.props.userId 이런식으로 접근
     (state) => ({
-        faqList: state.faq.get('faqList'),
-        userId : state.auth.get("userId")
+        /* ↓ 현재 component에서 사용될 props 명 */
+        faqList: state.faq.get('faqList'), /* faqList라는 props 내부 변수에 store에 저장되어 있는 faqList를 get해서 저장 */
+                  /* ↑ store의 state에서 꺼내는 부분 */             
+        userId : state.auth.get("userId") /* userId props 내부 변수에 store에 저장되어 있는 userId get해서 저장 */
     })
-    //component에서 사용하기 위해 reducer에서 스토어에 저장시키기 위한 함수 전체를 가져와서 할당하는 부분
+    //현재 component에서 사용하기 위해 reducer에서 가져온 함수를 할당하는 부분
+    //this.props.FaqAction
+    //this.props.AuthAction 이런식으로 접근
     , (dispatch) => ({
-        FaqAction : bindActionCreators(faqActions, dispatch),
-        AuthAction: bindActionCreators(authActions, dispatch)
+        /* ↓ 현재 component에서 사용될 props 명 */
+        FaqAction : bindActionCreators(faqActions, dispatch), /*상단에서 선언한 faqActions(modules)에 만들어놓은를 가져와서 FaqAction에 넣는다 */
+                                        /* ↑ modules 폴더에서 선언한 내용 */
+        AuthAction: bindActionCreators(authActions, dispatch) /*상단에서 선언한 authActions(modules)에 만들어놓은를 가져와서 AuthAction 넣는다 */
     })
 )(FaqContainer);

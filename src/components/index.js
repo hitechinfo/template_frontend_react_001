@@ -8,6 +8,7 @@ import FooterPopup from './block/FooterPopup';
 
 import SampleModifyPopup from './faq/SampleModifyPopup';
 import SampleCreatePopup from './faq/SampleCreatePopup';
+import SampleList from './faq/SampleList';
 
 export {
   IntroImg,
@@ -17,5 +18,6 @@ export {
   FooterPopup,
 
   SampleModifyPopup,
-  SampleCreatePopup
+  SampleCreatePopup,
+  SampleList
 }

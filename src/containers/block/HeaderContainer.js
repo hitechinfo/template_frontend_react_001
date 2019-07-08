@@ -126,13 +126,16 @@ class HeaderContainer extends Component {
     }
 }
 
+// 컴포넌트에 리덕스 연결시 아래 형태 connect - state - dispatch 사용
 export default withRouter(connect(
   (state) => ({
+      //현재 component에서 사용하기 위해 store에서 저장된 값을 꺼내서 할당하는 부분
       isLogin: state.auth.get('isLogin'),
       userId: state.auth.get('userId'),
       userType: state.auth.get('userType'),
       clickedMenu: state.menu.get('clickedMenu'),
   }), (dispatch) => ({
+    //현재 component에서 사용하기 위해 reducer에서 가져온 함수를 할당하는 부분
       AuthActions : bindActionCreators(authActions, dispatch),
       MenuActions : bindActionCreators(menuActions, dispatch)
   })
