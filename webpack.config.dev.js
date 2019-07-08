@@ -18,12 +18,12 @@ module.exports = {
         contentBase: __dirname + '/dist/',
         proxy: {
           '/nice': {
-            target: 'http://192.168.0.10:8081', //nice (인증서버)
+            target: 'http://192.168.0.10:8081', // nice 본인인증 서버 url
                 secure: false,
                 changeOrigin: true,
            },
           '/': {
-              target: 'http://192.168.0.6:3005', //rest api
+              target: 'localhost:3005', //[수정] 이곳에 Backend 서버 url 입력 하시기 바랍니다.
                   secure: false,
                   changeOrigin: true,
           }
