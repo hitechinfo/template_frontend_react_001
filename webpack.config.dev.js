@@ -23,7 +23,7 @@ module.exports = {
                 changeOrigin: true,
            },
           '/': {
-              target: 'localhost:3005', //[수정] 이곳에 Backend 서버 url 입력 하시기 바랍니다.
+              target: 'http://localhost:3005', //[수정] 이곳에 Backend 서버 url 입력 하시기 바랍니다.
                   secure: false,
                   changeOrigin: true,
           }
