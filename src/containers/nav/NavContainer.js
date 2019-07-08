@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as menuActions from 'modules/menu';
 import { withRouter } from 'react-router-dom';
+import * as faqActions from 'modules/faq';
 //import devtest from 'lib/devtest';
 
 class NavContainer extends Component {
@@ -81,7 +82,7 @@ class NavContainer extends Component {
     
 
     render() {
-      const { menuList, clickedMenu } = this.props;
+      const { menuList, clickedMenu, faqList } = this.props;
       const { handleMoveTo, styleCheck } = this;
 
     const IntroSubmenu = () => {
@@ -117,7 +118,7 @@ class NavContainer extends Component {
                 </li>
                 <li className="gt-f-l nav__menu-item" data-url="/recruit" onClick={handleMoveTo}><span className="gnb_1depth" style={styleCheck(clickedMenu, "/recruit")} >모집공고</span></li>
                 <li className="gt-f-l nav__menu-item" data-url="/company" onClick={handleMoveTo}><span className="gnb_1depth" style={styleCheck(clickedMenu, "/company")}>채용희망사 소개</span></li>
-                <li className="gt-f-l nav__menu-item" data-url="/faq"     onClick={handleMoveTo}><span className="gnb_1depth" style={styleCheck(clickedMenu, "/faq")}>FAQ(샘플)</span>
+                <li className="gt-f-l nav__menu-item" data-url="/faq"     onClick={handleMoveTo}><span className="gnb_1depth" style={styleCheck(clickedMenu, "/faq")}>FAQ(샘플) {faqList.length}개</span>
                 </li>
             </ul>
           </nav>
@@ -128,9 +129,12 @@ class NavContainer extends Component {
 // 컴포넌트에 리덕스 스토어를 연동해줄 때에는 connect 함수 사용
 export default withRouter(connect(
     (state) => ({
+        faqList: state.faq.get('faqList'),
         menuList: state.menu.get('menuList'),
         clickedMenu: state.menu.get('clickedMenu'),
     }), (dispatch) => ({
-        MenuActions : bindActionCreators(menuActions, dispatch)
+        MenuActions : bindActionCreators(menuActions, dispatch),
+        FaqAction : bindActionCreators(faqActions, dispatch),
+
     })
 )(NavContainer));

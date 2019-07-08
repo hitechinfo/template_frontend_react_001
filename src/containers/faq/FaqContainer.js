@@ -37,7 +37,7 @@ class FaqContainer extends Component {
     }
 
     componentDidMount() {
-      //렌더링 전에 FAQ 리스트 조회
+      //렌더링 후에 FAQ 리스트 조회
       this.handleGetFaqList();
     }
 
@@ -511,12 +511,12 @@ class FaqContainer extends Component {
 
 // 컴포넌트에 리덕스 스토어를 연동해줄 때에는 connect 함수 사용
 export default connect(
-    //props로 넣어줄 스토어 상태값
+    //component에서 사용하기 위해 store에서 저장된 값을 꺼내서 할당하는 부분
     (state) => ({
         faqList: state.faq.get('faqList'),
         userId : state.auth.get("userId")
     })
-    //props로 넣어줄 액션 생성함수
+    //component에서 사용하기 위해 reducer에서 스토어에 저장시키기 위한 함수 전체를 가져와서 할당하는 부분
     , (dispatch) => ({
         FaqAction : bindActionCreators(faqActions, dispatch),
         AuthAction: bindActionCreators(authActions, dispatch)
