@@ -5,16 +5,18 @@ import axios from  'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-/**  **/
+/** modules에서 선언한 액션함수 및 reducer를 가져온다 **/
 import * as faqActions from 'modules/faq';
 import * as authActions from 'modules/auth';
 
 import storage from 'lib/storage';
 
 /* 선언한 component를 가져온다 */
-import {  SampleModifyPopup, 
+import {  
+          SampleModifyPopup, 
           SampleCreatePopup, 
-          SampleList } from 'components';
+          SampleList 
+        } from 'components';
 
 class FaqContainer extends Component {
 
@@ -22,6 +24,7 @@ class FaqContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
+
           code : {
             qnaCategoryCode : [],
             qnaCategoryCodePopup : [],
@@ -116,18 +119,18 @@ class FaqContainer extends Component {
         url: `/commonCode/QUESTION/S`,//코드 URL은 뒤에 주소 대문자 사용함
         method : 'get',
         headers: { Pragma: 'no-cache'}
-    }).then(
-        (res)=>{
-            if(res.data){
-                code["qnaCategoryCodePopup"] = res.data;
-                this.setState({
-                    code
-                })
-            }
-        }
-    ).catch(
-        (err)=>{ if(err) console.log("코드 get err", err.response); }
-    )
+      }).then(
+          (res)=>{
+              if(res.data){
+                  code["qnaCategoryCodePopup"] = res.data;
+                  this.setState({
+                      code
+                  })
+              }
+          }
+      ).catch(
+          (err)=>{ if(err) console.log("코드 get err", err.response); }
+      )
 
 
     }
@@ -426,7 +429,7 @@ class FaqContainer extends Component {
               code, 
               openPopupModify,
               openPopupCreate, 
-              faqObj  } = this.state;
+              faqObj } = this.state;
 
       const { handleChange, 
               handleSummit, 
