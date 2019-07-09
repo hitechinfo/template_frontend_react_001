@@ -113,7 +113,7 @@ class HeaderContainer extends Component {
                   <div className="logout" onClick={handleLogout}>
                     <img src={iconLogout}></img><span >로그아웃</span>
                   </div>
-                  <div className="mypage" data-url="/mypage" onClick={handleMoveTo}>
+                  <div className="mypage">
                     <img src={iconMypage}></img><span style={styleCheck(clickedMenu, "/mypage")}>마이페이지</span>
                   </div>
                 </div>
