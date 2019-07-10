@@ -82,7 +82,7 @@ class NavContainer extends Component {
     
 
     render() {
-      const { menuList, clickedMenu, faqList } = this.props;
+      const { menuList, clickedMenu } = this.props;
       const { handleMoveTo, styleCheck } = this;
 
     const IntroSubmenu = () => {
@@ -118,7 +118,7 @@ class NavContainer extends Component {
                 </li>
                 <li className="gt-f-l nav__menu-item" data-url="/recruit" onClick={handleMoveTo}><span className="gnb_1depth" style={styleCheck(clickedMenu, "/recruit")} >모집공고</span></li>
                 <li className="gt-f-l nav__menu-item" data-url="/company" onClick={handleMoveTo}><span className="gnb_1depth" style={styleCheck(clickedMenu, "/company")}>채용희망사 소개</span></li>
-                <li className="gt-f-l nav__menu-item" data-url="/faq"     onClick={handleMoveTo}><span className="gnb_1depth" style={styleCheck(clickedMenu, "/faq")}>FAQ(샘플) {faqList.length}개</span>
+                <li className="gt-f-l nav__menu-item" data-url="/faq"     onClick={handleMoveTo}><span className="gnb_1depth" style={styleCheck(clickedMenu, "/faq")}>FAQ(샘플)</span>
                 </li>
             </ul>
           </nav>
@@ -130,13 +130,12 @@ class NavContainer extends Component {
 export default withRouter(connect(
     (state) => ({
         //현재 component에서 사용하기 위해 store에서 저장된 값을 꺼내서 할당하는 부분
-        faqList: state.faq.get('faqList'),
         menuList: state.menu.get('menuList'),
         clickedMenu: state.menu.get('clickedMenu'),
     }), (dispatch) => ({
         //현재 component에서 사용하기 위해 reducer에서 가져온 함수를 할당하는 부분
         MenuActions : bindActionCreators(menuActions, dispatch),
-        FaqAction : bindActionCreators(faqActions, dispatch),
+       
 
     })
 )(NavContainer));
