@@ -10,6 +10,8 @@ import SampleModifyPopup from './faq/SampleModifyPopup';
 import SampleCreatePopup from './faq/SampleCreatePopup';
 import SampleList from './faq/SampleList';
 
+import CodePopup from './code/CodePopup'
+
 export {
   IntroImg,
   RecruitList,
@@ -19,5 +21,6 @@ export {
 
   SampleModifyPopup,
   SampleCreatePopup,
-  SampleList
+  SampleList,
+  CodePopup
 }

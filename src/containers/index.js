@@ -7,6 +7,7 @@ import HeaderContainer from './block/HeaderContainer';
 import AuthRoute from './common/AuthRoute';
 import CompanyContainer from './company/CompanyContainer';
 import FaqContainer from './faq/FaqContainer';
+import CodeContainer from './code/CodeContainer';
 
 export {
   
@@ -19,5 +20,6 @@ export {
   CompanyContainer,
   FaqContainer,
   AuthRoute,
+  CodeContainer
 
 }

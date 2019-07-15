@@ -117,7 +117,7 @@ class NavContainer extends Component {
                     <IntroSubmenu/>
                 </li>
                 <li className="gt-f-l nav__menu-item" data-url="/recruit" onClick={handleMoveTo}><span className="gnb_1depth" style={styleCheck(clickedMenu, "/recruit")} >모집공고</span></li>
-                <li className="gt-f-l nav__menu-item" data-url="/company" onClick={handleMoveTo}><span className="gnb_1depth" style={styleCheck(clickedMenu, "/company")}>채용희망사 소개</span></li>
+                <li className="gt-f-l nav__menu-item" data-url="/code" onClick={handleMoveTo}><span className="gnb_1depth" style={styleCheck(clickedMenu, "/code")}>코드관리</span></li>
                 <li className="gt-f-l nav__menu-item" data-url="/faq"     onClick={handleMoveTo}><span className="gnb_1depth" style={styleCheck(clickedMenu, "/faq")}>FAQ(샘플)</span>
                 </li>
             </ul>
