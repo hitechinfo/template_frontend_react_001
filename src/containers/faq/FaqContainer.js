@@ -423,6 +423,7 @@ class FaqContainer extends Component {
     }
 
 
+
     render() {
 
       const { selectedQuestion, 
@@ -442,7 +443,8 @@ class FaqContainer extends Component {
               openModiPopup,
               openCreatePopup,
               closeModiPopup,
-              openQuestion  } = this;
+              openQuestion,
+                } = this;
 
       const { faqList } = this.props;
 

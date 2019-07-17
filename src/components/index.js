@@ -10,7 +10,8 @@ import SampleModifyPopup from './faq/SampleModifyPopup';
 import SampleCreatePopup from './faq/SampleCreatePopup';
 import SampleList from './faq/SampleList';
 
-import CodePopup from './code/CodePopup'
+import CodePopup from './code/CodePopup';
+import MypageContent from './mypage/MypageContent'
 
 export {
   IntroImg,
@@ -22,5 +23,6 @@ export {
   SampleModifyPopup,
   SampleCreatePopup,
   SampleList,
-  CodePopup
+  CodePopup,
+  MypageContent
 }

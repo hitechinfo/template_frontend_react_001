@@ -5,7 +5,8 @@ import {
   RegisterContainer,
   CompanyContainer,
   FaqContainer,
-  CodeContainer
+  CodeContainer,
+  MypageContainer
         } from 'containers';
         
 // 로그인이 필요한 서비스 url
@@ -13,6 +14,11 @@ export const privateRoutes = [
   { /** faq 페이지 */
     path: "/faq",
     component: FaqContainer
+  },
+
+  { /** faq 페이지 */
+    path: "/mypage",
+    component: MypageContainer
   },
 
 ];

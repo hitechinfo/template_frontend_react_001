@@ -8,7 +8,7 @@ import AuthRoute from './common/AuthRoute';
 import CompanyContainer from './company/CompanyContainer';
 import FaqContainer from './faq/FaqContainer';
 import CodeContainer from './code/CodeContainer';
-
+import MypageContainer from './mypage/MypageContainer'
 export {
   
   IntroContainer,
@@ -20,6 +20,7 @@ export {
   CompanyContainer,
   FaqContainer,
   AuthRoute,
-  CodeContainer
+  CodeContainer,
+  MypageContainer
 
 }
